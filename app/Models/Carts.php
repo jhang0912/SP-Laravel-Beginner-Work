@@ -19,4 +19,9 @@ class Carts extends Model
     {
         return $this->belongsTo('users');
     }
+
+    public function cart_items()
+    {
+        return $this->hasMany('cart_items');
+    }
 }

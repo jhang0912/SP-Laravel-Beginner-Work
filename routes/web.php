@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 /* 會員註冊 */
 Route::post('register', 'App\Http\Controllers\Member@register');
+/* 會員登入 */
+Route::post('signIn','App\Http\Controllers\Member@signIn');

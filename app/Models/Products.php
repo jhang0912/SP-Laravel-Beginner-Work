@@ -17,4 +17,10 @@ class Products extends Model
         'price',
         'quantity',
     ];
+
+    /* Relationships */
+    public function cart_items()
+    {
+        return $this->hasMany('cart_items');
+    }
 }

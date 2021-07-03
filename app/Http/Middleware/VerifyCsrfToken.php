@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'http://localhost/laravel/Homework/public/*'
+        'http://localhost/laravel/Homework/public/register',
+        'http://localhost/laravel/Homework/public/signIn',
     ];
 }
