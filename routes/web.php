@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* 會員註冊 */
+Route::post('register', 'App\Http\Controllers\Member@register');
