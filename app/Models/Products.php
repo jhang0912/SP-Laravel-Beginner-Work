@@ -21,6 +21,6 @@ class Products extends Model
     /* Relationships */
     public function cart_items()
     {
-        return $this->hasMany('cart_items');
+        return $this->hasMany(Cart_items::class);
     }
 }

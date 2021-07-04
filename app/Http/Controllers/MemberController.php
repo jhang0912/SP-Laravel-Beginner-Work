@@ -8,7 +8,7 @@ use App\Http\Requests\SignInPostRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class Member extends Controller
+class MemberController extends Controller
 {
     /* 會員註冊 */
     public function register(RegisterPostRequest $request)
