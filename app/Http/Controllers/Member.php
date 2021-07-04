@@ -37,4 +37,20 @@ class Member extends Controller
             return response('登入失敗，請重新登入');
         }
     }
+
+    /* 取得會員資料 */
+    public function member(Request $request)
+    {
+        $member_data = $request->user();
+
+        return response($member_data);
+    }
+
+    /* 會員登出 */
+    public function signOut(Request $request)
+    {
+        $request->user()->token()->revoke();
+
+        return response('登出成功');
+    }
 }
