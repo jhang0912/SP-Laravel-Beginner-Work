@@ -26,6 +26,7 @@ Route::post('signIn', 'App\Http\Controllers\MemberController@signIn');
 /* 會員授權操作 */
 Route::group(['middleware' => 'auth:api'], function () {
     Route::get('signOut', 'App\Http\Controllers\MemberController@signOut'); //會員登出
+    Route::get('cart', 'App\Http\Controllers\CartController@addProductsToCart'); //將商品放進購物車
     Route::post('member', 'App\Http\Controllers\MemberController@member'); //取得會員資料
-    Route::get('Cart', 'App\Http\Controllers\CartController@addProductsToCart'); //將商品放進購物車
+    Route::post('getCart', 'App\Http\Controllers\CartController@getCart'); //取得購物車資料
 });

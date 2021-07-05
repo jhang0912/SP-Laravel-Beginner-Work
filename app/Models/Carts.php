@@ -11,7 +11,14 @@ class Carts extends Model
 
     /* attributes */
     protected $fillable = [
+        'user_id',
+        'checked_out',
         'deliveried'
+    ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
     ];
 
     /* Relationships */
@@ -29,7 +36,7 @@ class Carts extends Model
     static function createCart($member)
     {
         $cart = Carts::firstOrCreate([
-            'id' => $member['id'],
+            'user_id' => $member['id'],
             'checked_out' => 0
         ]);
 

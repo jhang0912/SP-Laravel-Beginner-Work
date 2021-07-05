@@ -23,4 +23,13 @@ class CartController extends Controller
         $cart_item = Cart_items::createCartItem($cart, $request); // 將商品放進購物車
         return response($cart_item);
     }
+
+    /* 取得購物車資料 */
+    public function getCart(Request $request)
+    {
+        $member = $request->user();
+        $cart = $member->carts()->with('cart_items.products')->get();
+
+        return response($cart);
+    }
 }

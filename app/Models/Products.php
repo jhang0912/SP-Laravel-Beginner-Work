@@ -18,6 +18,11 @@ class Products extends Model
         'quantity',
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     /* Relationships */
     public function cart_items()
     {

@@ -16,6 +16,11 @@ class Cart_items extends Model
         'quantity'
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     /* Relationships */
     public function carts()
     {
@@ -24,7 +29,7 @@ class Cart_items extends Model
 
     public function products()
     {
-        return $this->belongsTo(Products::class);
+        return $this->hasOne(Products::class, 'id','product_id');
     }
 
     /* functions */
