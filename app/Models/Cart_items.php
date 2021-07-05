@@ -29,17 +29,26 @@ class Cart_items extends Model
 
     public function products()
     {
-        return $this->hasOne(Products::class, 'id','product_id');
+        return $this->hasOne(Products::class, 'id', 'product_id');
     }
 
     /* functions */
-    static function createCartItem($cart, $product)
+    static function createCartItem($cart, $product) //新增購物車項目
     {
         $cart_item = $cart->cart_items()->make([
             'product_id' => $product->id,
             'quantity' => $product->quantity
         ]);
         $cart_item->save();
+
+        return $cart_item;
+    }
+
+    static function editCartItemQuantity($cart_id, $product) //編輯購物車項目數量
+    {
+        $cart_item = Cart_items::where('cart_id', $cart_id)
+            ->where('product_id', $product->id)
+            ->update(['quantity' => $product->quantity]);
 
         return $cart_item;
     }

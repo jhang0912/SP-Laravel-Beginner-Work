@@ -29,4 +29,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('cart', 'App\Http\Controllers\CartController@addProductsToCart'); //將商品放進購物車
     Route::post('member', 'App\Http\Controllers\MemberController@member'); //取得會員資料
     Route::post('getCart', 'App\Http\Controllers\CartController@getCart'); //取得購物車資料
+    Route::post('editCart', 'App\Http\Controllers\CartController@editCart'); //編輯購物車資料
 });
