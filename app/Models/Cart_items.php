@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cart_items extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /* attributes */
     protected $fillable = [
@@ -49,6 +50,15 @@ class Cart_items extends Model
         $cart_item = Cart_items::where('cart_id', $cart_id)
             ->where('product_id', $product->id)
             ->update(['quantity' => $product->quantity]);
+
+        return $cart_item;
+    }
+
+    static function deleteCartItem($cart_id, $product) //刪除購物車商品
+    {
+        $cart_item = Cart_items::where('cart_id', $cart_id)
+            ->where('product_id', $product->id)
+            ->delete();
 
         return $cart_item;
     }

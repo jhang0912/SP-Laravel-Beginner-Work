@@ -33,7 +33,7 @@ class CartController extends Controller
         return response($cart);
     }
 
-    /* 編輯購物車資料(修改數量) */
+    /* 編輯購物車商品資料(修改數量) */
     public function editCart(Request $request) //→商品id、quantity
     {
         $member = $request->user();
@@ -47,10 +47,26 @@ class CartController extends Controller
             $edit_result = Cart_items::editCartItemQuantity($cart_id, $request);
         }
 
-        if($edit_result){
+        if ($edit_result) {
             return response('商品數量編輯成功！！');
-        }else{
+        } else {
             return response('商品數量編輯失敗！！');
+        }
+    }
+
+    /* 刪除購物車商品資料 */
+    public function deleteCart(Request $request) //→商品id
+    {
+        $member = $request->user();
+        $cart = $member->carts()->with('cart_items.products')->first();
+        $cart_id = $cart->id;
+
+        $delete_result = Cart_items::deleteCartItem($cart_id, $request);
+
+        if ($delete_result) {
+            return response('購物車商品刪除成功！！');
+        }else{
+            return response('購物車商品刪除失敗！！');
         }
     }
 }
