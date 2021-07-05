@@ -23,4 +23,16 @@ class Products extends Model
     {
         return $this->hasMany(Cart_items::class);
     }
+
+    /* function */
+    static function checkProductQuantity($product)
+    {
+        $quantity = Products::find($product->id)->quantity; //取得商品庫存數量
+
+        if ($product->quantity > $quantity) {//比對選購數量否超過庫存數量
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

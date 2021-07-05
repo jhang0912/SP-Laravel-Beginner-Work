@@ -18,14 +18,14 @@ Route::get('/', function () {
 });
 
 /* 會員註冊 */
-Route::post('register', 'App\Http\Controllers\Member@register');
+Route::post('register', 'App\Http\Controllers\MemberController@register');
 
 /* 會員登入 */
-Route::post('signIn', 'App\Http\Controllers\Member@signIn');
+Route::post('signIn', 'App\Http\Controllers\MemberController@signIn');
 
 /* 會員授權操作 */
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('signOut', 'App\Http\Controllers\Member@signOut'); //會員登出
-    Route::post('member', 'App\Http\Controllers\Member@member'); //取得會員資料
+    Route::get('signOut', 'App\Http\Controllers\MemberController@signOut'); //會員登出
+    Route::post('member', 'App\Http\Controllers\MemberController@member'); //取得會員資料
     Route::get('Cart', 'App\Http\Controllers\CartController@addProductsToCart'); //將商品放進購物車
 });
