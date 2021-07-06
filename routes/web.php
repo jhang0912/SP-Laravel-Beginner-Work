@@ -31,4 +31,5 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('getCart', 'App\Http\Controllers\CartController@getCart'); //取得購物車資料
     Route::post('editCart', 'App\Http\Controllers\CartController@editCart'); //編輯購物車商品資料
     Route::post('deleteCart', 'App\Http\Controllers\CartController@deleteCart'); //刪除購物車商品資料
+    Route::post('checkOutCart', 'App\Http\Controllers\CartController@checkOutCart'); //結帳
 });

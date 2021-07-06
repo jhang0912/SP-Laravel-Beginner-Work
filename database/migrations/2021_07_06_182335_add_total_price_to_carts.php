@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToCarts extends Migration
+class AddTotalPriceToCarts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddUserIdToCarts extends Migration
     public function up()
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->foreignId('user_id')->after('id')->constrained('users');
+            $table->integer('total_price')->after('user_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddUserIdToCarts extends Migration
     public function down()
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->dropConstrainedForeignId(['user_id']);
+            $table->dropColumn('total_price');
         });
     }
 }
