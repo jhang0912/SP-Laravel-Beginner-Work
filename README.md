@@ -40,10 +40,10 @@
 
 ## Models
 ### User
-- （id／name／email／email_verified_atpassword／level／remember_token／remember_tokencreated_at／created_at）
+- （id／name／email／email_verified_atpassword／level／remember_token／remember_tokencreated_at／updated_at）
 ### Carts
-- （id／user_id／total_price／checked_out／deliveried／created_at／created_at）
+- （id／user_id／total_price／checked_out／deliveried／created_at／updated_at）
 ### Cart_items （use SoftDeletes）
-- （id／cart_id／product_id／quantity／created_at／created_at）
+- （id／cart_id／product_id／quantity／created_at／updated_at）
 ### Products
-- （id／cht_name／en_name／content／price／quantity／created_at／created_at）
+- （id／cht_name／en_name／content／price／quantity／created_at／updated_at）
