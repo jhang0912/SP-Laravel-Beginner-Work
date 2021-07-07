@@ -32,7 +32,8 @@ class RegisterPostRequest extends APIRequest
     {
         return [
             'required' => ':attribute為必填欄位，請重新填寫。',
-            'confirmed' => '密碼確認錯誤，請再次輸入'
+            'confirmed' => '密碼確認錯誤，請確認填寫與密碼一致',
+            'email'=>'信箱格式錯誤，請重新填寫。'
         ];
     }
 }

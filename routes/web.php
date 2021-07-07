@@ -25,11 +25,12 @@ Route::post('signIn', 'App\Http\Controllers\MemberController@signIn');
 
 /* 會員授權操作 */
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::get('signOut', 'App\Http\Controllers\MemberController@signOut'); //會員登出
-    Route::get('cart', 'App\Http\Controllers\CartController@addProductsToCart'); //將商品放進購物車
+    Route::post('cart', 'App\Http\Controllers\CartController@addProductsToCart'); //將商品放進購物車
+    Route::post('signOut', 'App\Http\Controllers\MemberController@signOut'); //會員登出
     Route::post('member', 'App\Http\Controllers\MemberController@member'); //取得會員資料
     Route::post('getCart', 'App\Http\Controllers\CartController@getCart'); //取得購物車資料
     Route::post('editCart', 'App\Http\Controllers\CartController@editCart'); //編輯購物車商品資料
     Route::post('deleteCart', 'App\Http\Controllers\CartController@deleteCart'); //刪除購物車商品資料
     Route::post('checkOutCart', 'App\Http\Controllers\CartController@checkOutCart'); //結帳
+    Route::post('getCheckedOutCart', 'App\Http\Controllers\CartController@getCheckedOutCart'); //取得已結帳訂單資料
 });

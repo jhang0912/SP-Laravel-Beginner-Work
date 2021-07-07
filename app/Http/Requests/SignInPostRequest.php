@@ -33,7 +33,7 @@ class SignInPostRequest extends APIRequest
     {
         return [
             'required' => ':attribute為必填欄位，請重新填寫。',
-            'email' => 'email格式錯誤，請重新確認'
+            'email' => '信箱格式錯誤，請重新填寫'
         ];
     }
 }

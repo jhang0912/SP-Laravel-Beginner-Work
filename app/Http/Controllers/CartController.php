@@ -92,4 +92,14 @@ class CartController extends Controller
 
         return response('結帳成功！！您的訂單編號為「' . $cart->id . '」，可至會員中心查詢訂單處理進度，謝謝！！');
     }
+
+    /* 取得已結帳訂單資料 */
+    public function getCheckedOutCart(Request $request)
+    {
+        $member = $request->user();
+        $cart = $member->carts()->where('checked_out', 1)->with('cart_items.products')->get();
+
+        return response($cart);
+    }
+
 }
