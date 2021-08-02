@@ -9,7 +9,7 @@
 
 ## About「Laravel Beginner Work」
 
-這是一份使用 PHP 框架 Laravel 進行撰寫的入門作品，以電商平台的各種功能為目標去實作，由於未撰寫前端元件 View，所以需搭配 Postman 進行測試，使用的技術元件與專案架構如下:
+這是一份使用 PHP 框架 Laravel 進行撰寫的作品，以電商平台的各種功能為目標去實作，由於未撰寫前端元件 View，所以需搭配 Postman 進行測試，使用的技術元件與專案架構如下:
 
 ## Demo
 ### [Laravel Beginner Work Demo](https://www.youtube.com/watch?v=zQ1_1twdLvE&ab_channel=fueqaxvk)
